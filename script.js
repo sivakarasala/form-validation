@@ -4,6 +4,11 @@ const password2El = document.getElementById("password2");
 const messageContainer = document.querySelector(".message-container");
 const message = document.getElementById("message");
 
+const COLOR = {
+    SUCCESS: "skyblue",
+    ERROR: "red"
+};
+
 let isValid = false;
 let passwordsMatch = false;
 
@@ -13,29 +18,29 @@ function validateForm() {
     // Style main message for an error
     if(!isValid) {
         message.textContent = "Please fill out all fields";
-        message.style.color = "red";
-        messageContainer.style.borderColor = "red";
+        message.style.color = COLOR.ERROR;
+        messageContainer.style.borderColor = COLOR.ERROR;
         return;
     }
     // Check to see if passwords match
     if(password1El.value === password2El.value) {
         passwordsMatch = true;
-        password1El.style.borderColor = "skyblue";
-        password2El.style.borderColor = "skyblue";
+        password1El.style.borderColor = COLOR.SUCCESS;
+        password2El.style.borderColor = COLOR.SUCCESS;
     } else {
         passwordsMatch = false;
         message.textContent = "Maku sure passwords match.";
-        message.style.color = "red";
-        messageContainer.style.borderColor = "red";
-        password1El.style.borderColor = "red";
-        password2El.style.borderColor = "red";
+        message.style.color = COLOR.ERROR;
+        messageContainer.style.borderColor = COLOR.ERROR;
+        password1El.style.borderColor = COLOR.ERROR;
+        password2El.style.borderColor = COLOR.ERROR;
         return;
     }
     // If form is valid and passwords match
     if(isValid && passwordsMatch) {
         message.textContent = "Successfully Registered!";
-        message.style.color = "skyblue";
-        messageContainer.style.borderColor = "skyblue";
+        message.style.color = COLOR.SUCCESS;
+        messageContainer.style.borderColor = COLOR.SUCCESS;
     }
 }
 
